@@ -1,0 +1,37 @@
+<div id="<%= dom_id list %>">
+  <table class="table table-hover table-bordered">
+
+    <tbody>
+    <% if list.completed %>
+      <tr class="table-secondary">
+      <td class="striker"> <%= link_to list.description, edit_list_path(list), class:"text-decoration-none text-dark" %></td>
+      <td>
+        <center>
+          <%= form_for(list) do |f| %>
+            <%= f.text_field :description, type: 'hidden' %>
+            <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
+            <%= f.submit "Uncross", class: 'btn btn-outline-secondary btn-sm' %>
+          <% end %>
+        </center>
+      </td>
+      <td>   <%= button_to "Destroy", list,class: 'btn btn-outline-danger btn-sm', method: :delete ,data:{ confirm: 'Are you sure?'} %>  </td>          
+      </tr>
+    <% else %>
+      <tr>
+      <td> <%= link_to list.description, edit_list_path(list), class:"text-decoration-none text-dark" %></td>
+      <td>
+            <center>
+            <%= form_for(list) do |f| %>
+              <%= f.text_field :description, type: 'hidden' %>
+              <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
+              <%= f.submit "Cross Off", class: 'btn btn-outline-secondary btn-sm' %>
+            <% end %>
+            </center>
+          </td>
+      <td>   <%= button_to "Destroy", list, class: 'btn btn-outline-danger btn-sm',method: :delete %>  </td>          
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
