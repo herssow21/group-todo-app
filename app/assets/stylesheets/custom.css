@@ -1,5 +1,6 @@
 .mytheme{
     background-color: rgb(255,69,0);
+    color: #fff;
 }
 .striker{
     text-decoration: line-through;
@@ -7,3 +8,15 @@
 table {
     table-layout: fixed;
 }
+
+
+@media (max-width: 768px) {
+    /* .navbar{
+        background-color: #fff;
+    }
+   .container-fluid{
+    background-color: rgb(255,69,0);
+    margin-top: -10px;
+   } */
+   
+  }

@@ -1,5 +1,5 @@
 <div id="<%= dom_id list %>">
-  <table class="table table-hover table-bordered">
+  <table class="table table-responsive table-hover table-bordered">
 
     <tbody>
     <% if list.completed %>
@@ -14,7 +14,11 @@
           <% end %>
         </center>
       </td>
-      <td>   <%= button_to "Destroy", list,class: 'btn btn-outline-danger btn-sm', method: :delete ,data:{ confirm: 'Are you sure?'} %>  </td>          
+      <td> 
+        <center>
+         <%= button_to "Destroy", list, class: 'btn btn-outline-danger btn-sm',method: :delete %> 
+        </center>
+      </td>          
       </tr>
     <% else %>
       <tr>
@@ -28,8 +32,14 @@
             <% end %>
             </center>
           </td>
-      <td>   <%= button_to "Destroy", list, class: 'btn btn-outline-danger btn-sm',method: :delete %>  </td>          
-      </tr>
+
+      <td>  
+        <center>
+          <%= button_to "Destroy", list, class: 'btn btn-outline-danger btn-sm',method: :delete %> 
+        </center>
+      </td>          
+      
+       </tr>
     <% end %>
     </tbody>
   </table>

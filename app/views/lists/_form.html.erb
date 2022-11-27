@@ -1,27 +1,29 @@
-<%= form_with(model: list) do |form| %>
-  <% if list.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+<%= form_with(model: list) do |f| %>
+    <% if list.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
 
-      <ul>
-        <% list.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% list.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div class="jumbotron"> 
+    <div class="form-group my-2">
+    <%= f.text_field :description, class: 'form-control' %>
     </div>
-  <% end %>
-<div class="row">
-    
-  <div class="form-group col-8">
-  <%= f.text_field :description, class: 'form-control' %>
-  </div>
-  <div class="form-group form-check">
-  <%= f.check_box :completed, class: 'form-check-input' %>
-  <%= f.label :completed, class: 'form-check-label' %>
-  </div>
+    <%= f.text_field :who, placeholder:"Who to do this task",class: 'form-control' %>
 
-  <div class="actions col-3">
-  <%= f.submit "Update Todo Item", class: 'btn btn-default' %>
+    <div class="form-group form-check my-2 ">
+      <%= f.check_box :completed, class: 'form-check-input' %>
+      <%= f.label :completed, class: 'form-check-label' %>
+    </div>
+
+    <div class="actions">
+     <%= f.submit "Update Todo Item", class: 'btn btn-default', class: 'btn mytheme btn-sm' %>
+    </div>
   </div>
-</div>
 <% end %>
