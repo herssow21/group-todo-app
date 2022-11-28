@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_26_182948) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_212101) do
   create_table "lists", force: :cascade do |t|
     t.string "description"
     t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "who"
+    t.datetime "deadline"
   end
 
 end
