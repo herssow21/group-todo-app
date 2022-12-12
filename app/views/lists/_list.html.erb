@@ -6,6 +6,7 @@
       <tr class="table-secondary">
       <td class="striker"> <%= link_to list.description, edit_list_path(list), class:"text-decoration-none text-dark" %></td>
       <td> Doer: <span class="badge mytheme rounded-pill"> <%= list.who %> </span> </td>
+      <td> Exp on: <span class="badge mytheme rounded-pill"> <%= @deadline %> </span> </td>
       <td>
         <center>
           <%= form_for(list) do |f| %>
@@ -25,6 +26,7 @@
       <tr>
       <td> <%= link_to list.description, edit_list_path(list), class:"text-decoration-none text-dark" %></td>
       <td> Doer: <span class="badge mytheme rounded-pill"> <%= list.who %> </span> </td>
+      <td> Due:<span class="badge mytheme rounded-pill">  <%= @remaining_time %> </span> </td>
       <td>
             <center>
             <%= form_for(list) do |f| %>

@@ -1,11 +1,19 @@
 class ListsController < ApplicationController
   before_action :set_list, only: %i[ show edit update destroy ]
 
+  
   # GET /lists or /lists.json
   def index
     @lists = List.all
     @list = List.new
-  end
+    @start_time = Time.now  
+    @end_time = Time.now + 5.days
+    @deadline =@end_time.strftime("%d %B %Y")
+
+    @remaining_time = TimeDifference.between(@start_time, @end_time).humanize
+  # @diff =@object.updated_at.to_time.to_i - @object.created_at.to_time.to_i
+  # @hour = "#{diff / 3600}:#{(diff % 3600) / 60}"
+end
 
   # GET /lists/1 or /lists/1.json
   def show
@@ -66,6 +74,6 @@ class ListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_params
-      params.require(:list).permit(:description, :completed, :who)
+      params.require(:list).permit(:description, :completed, :who, :deadline)
     end
 end
